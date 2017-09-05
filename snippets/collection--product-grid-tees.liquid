@@ -1,0 +1,96 @@
+<!-- /snippets/product-grid-item.liquid -->
+{% comment %}
+
+  This snippet is used to showcase each product during the loop,
+  'for product in collection.products' in collection.liquid.
+
+  A liquid variable (grid_item_width) is set just before the this
+  snippet is included to change the size of the container.
+  Once the variable is set on a page, all future instances of this
+  snippet will use that width. Overwrite the variable to adjust this.
+
+  Example
+    - assign grid_item_width = 'large--one-quarter medium--one-half'
+
+{% endcomment %}
+
+{% comment %}
+  Set the default grid_item_width if no variable is set
+{% endcomment %}
+{% unless grid_item_width %}
+  {% assign grid_item_width = 'large--one-third medium--one-half small--one-half no-padding' %}
+{% endunless %}
+
+{% comment %}
+  Check if the product is on sale and set a variable to be used below.
+{% endcomment %}
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% comment %}
+  Check if the product is sold out and set a variable to be used below.
+{% endcomment %}
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+  
+<div class="grid__item grid-product {{ grid_item_width }}{% if sold_out %} is-sold-out{% endif %}">
+  <div class="grid-product__wrapper {{product.handle}}">
+    <div class="grid-product__image-wrapper">
+      <a class="grid-product__image-link" href="{{ product.url | within: collection }}">
+        <img src="{{ product | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" class="grid-product__image">
+      </a>
+      {% unless collection.title == 'Reflective' %}
+      {% if product.tags contains 'Reflective' %}
+      <div class="reflective-icon">
+        <a href="/collections/reflective">
+        	<img src="{{ 'REFLECTIVE_BLACK.png' | asset_url }}">
+        </a>
+      </div>      
+      {% endif %} 
+      {% endunless %}
+      {% unless collection.title == 'Nano Cure Tech' %}
+      {% if product.tags contains 'NCT' %}
+      <div class="nct-icon">
+        <a href="/collections/nano-cure-tech">
+        	<img src="{{ 'NCT_Black.png' | asset_url }}">
+        </a>
+      </div>      
+      {% endif %} 
+      {% endunless %} 
+      {% unless collection.title contains 'Chill Seeker' %}
+      {% if product.tags contains 'Chill Seeker' or product.tags contains 'chill seeker'  %}
+      <div class="seeker-icon">
+        <a href="/collections/chill-seeker">
+        	<img src="{{ 'chill-seeker-logo-black.png' | asset_url }}">
+        </a>
+      </div>      
+      {% endif %} 
+      {% endunless %} 
+      {% comment %}
+      {% if sold_out %}
+        <div class="grid-product__sold-out">
+          <p>{{ 'products.product.sold_out_html' | t }}</p>
+        </div>
+      {% elsif on_sale %}
+        <div class="grid-product__on-sale">
+          {% capture saved_amount %}{{ product.compare_at_price | minus: product.price | money_without_trailing_zeros }}{% endcapture %}
+          <p>{{ 'products.general.save_html' | t: saved_amount: saved_amount }}</p>
+        </div>
+      {% endif %}
+      {% endcomment %}
+    </div>
+        {% include 'swatch' with 'Color' %}
+
+    <p class="h6 text-center product-title">
+      <a href="{{ product.url | within: collection }}" class="grid-product__meta">{{ product.title | remove: 'T-Shirt' | remove: 'Tank Top' }}</a>
+    </p>
+  {% include 'product-price' %}
+  </div>
+</div>
+
+
+

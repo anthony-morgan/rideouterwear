@@ -1,0 +1,16 @@
+ <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+
+        <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+
+        {% comment %}
+          ID addToCartForm is a selector for the ajax cart plugin
+        {% endcomment %}
+
+            
+        {% if product.available and product.variants.size > 1 %}
+ 			{% include 'swatch' with 'Color' %}
+ 		{% endif %}
+                     
+
+</div>

@@ -1,0 +1,110 @@
+{% assign affiliate = article.title  %}
+<div class="grid--full">
+  <div class="grid__item sections-background border-sections-affiliate">    
+    <ul class="sections">
+      <li class="large--hide"><a href="#tab-2">Bio</a></li>
+      <li><a href="#tab-1">Photos</a></li>    
+      <li><a href="#tab-3">Videos</a></li>    
+      <li><a href="#tab-4">News</a></li>    
+    </ul>
+  </div>
+</div>
+<div class="grid--full">
+  <div class="grid__item">
+    <div class="grid--rev large--hide">  
+      <div class="grid__item no-padding"> 
+        <div class="grid__item no-padding">
+          <div id="tab-2">
+            <div class="sections-container border">
+            {{ article.content}}
+            </div>
+  	      </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid--rev">  
+      <div class="grid__item no-padding"> 
+  	    <div id="tab-1">        
+          <div class="grid--full your-class">
+  		  {% for i in (1..30) %}
+  		  {% assign lbKey = 'blog-image-' | append:i %}
+  		  {% assign lbMetafield = article.metafields.c_f[lbKey] %}
+  		  {% if lbMetafield == blank %}{% continue %}{% endif %}
+  		    <div class="grid--full">
+              <img class="grid__item border large--one-half push--large--one-quarter" src="{{ lbMetafield }}">
+            </div>
+  		  {% endfor %}
+		  </div>
+  	    </div>  
+      </div>
+    </div>
+	<div class="grid--rev">  
+  	  <div class="grid__item no-padding"> 
+        <div id="tab-3">       
+          <ul class="blog--motion grid--full no-bullets">
+    {% assign motion = blogs.motion %}
+    {% for article in motion.articles %}
+    {% if article.tags contains affiliate %}
+    {% if forloop.last != true %}
+      <li class="grid__item large--one-half border--motion">
+        <div style='display:none'>
+  		  <div id='inline_content{{- forloop.index -}}' class="text-center" style='padding:10px; background:#fff;'> 
+	        <iframe width="95%" height="65%" src="https://{{ article.metafields.c_f.blog-video | strip_html }}" frameborder="0" allowfullscreen controls="1"></iframe>
+            <h3>{{ article.title }}</h3>
+          </div>
+		</div>
+        <a class="inline" href="#inline_content{{- forloop.index -}}">
+          <div class="blog--motion-image" {% if article.image == blank %}style="background-color: black;" {% else %} style="background: url({{ article.image | img_url: '1024x1024' }}) no-repeat center center; background-size: cover;" {% endif %} >
+            <div class="motion-overlay"></div>
+              <div class="blog--motion-info">
+                <h3>{{ article.title }}</h3>
+                {% assign seconds = 14 | times: 24 | times: 60 | times: 60 %}
+                <h5>{{ article.published_at | date: "%s" | plus: seconds | date: "%B %d 20%y" }}</h5>
+            </div>
+          </div>
+        </a>
+      </li>
+    {% endif %}
+    {% endif %}
+    {% unless forloop.last %}{% endunless %}
+    {% endfor %}
+    </ul>
+  		  
+    	  </div>
+  		</div>
+	  </div>
+	  <div class="grid--rev">  
+  	  	<div class="grid__item no-padding">
+    	  <div id="tab-4">
+      		<ul class="blog--motion grid--full no-bullets">
+    {% assign news = blogs.news %}
+    {% for article in news.articles %}
+    {% if article.tags contains affiliate %}
+    <li class="grid__item large--one-half border--motion">
+        <a class="" href="{{ article.url}}">
+          <div class="blog--motion-image" {% if article.image == blank %}style="background-color: black;" {% else %} style="background: url({{ article.image | img_url: '1024x1024' }}) no-repeat center center; background-size: cover;" {% endif %}>
+            <div class="motion-overlay"></div>
+              <div class="blog--motion-info">
+                <h3>{{ article.title }}</h3>
+                {% assign seconds = 14 | times: 24 | times: 60 | times: 60 %}
+                <h5>{{ article.published_at | date: "%s" | plus: seconds | date: "%B %d 20%y" }}</h5>
+            </div>
+          </div>
+        </a>
+    </li>
+              {% endif %}
+   {% unless forloop.last %}{% endunless %}
+   {% endfor %}
+  </ul>  
+    	  </div>
+  		</div>
+	  </div>
+	</div>
+  </div>
+
+
+
+<script>
+  $(".inline").colorbox({inline:true, width:"95%"});
+</script>
+

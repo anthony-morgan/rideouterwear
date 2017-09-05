@@ -1,0 +1,35 @@
+<span class="small--hide right">
+{% if collection.previous_product or collection.next_product %}
+    <p class="previous-product">
+    {% if collection.previous_product %}
+      <a class="left">
+        {{ 'previous' | link_to: collection.previous_product }}
+      </a>
+      {% endif %}
+      {% if collection.next_product %}
+      <span aria-hidden="true">|</span>
+      <a class="right">
+        {{ 'next' | link_to: collection.next_product }}
+      </a>
+      {% endif %}
+    </p>
+{% endif %}
+</span>
+{% comment %}
+<span class="medium--hide large--hide">
+{% if collection.previous_product or collection.next_product %}
+    <p class="previous-product">
+    {% if collection.previous_product %}
+      <a class="left">
+        {{ '<' | link_to: collection.previous_product }}
+      </a>
+      {% endif %}
+      {% if collection.next_product %}
+      <a class="right">
+        {{ '>' | link_to: collection.next_product }}
+      </a>
+      {% endif %}
+    </p>
+{% endif %}
+</span>
+{% endcomment %}

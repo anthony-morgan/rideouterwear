@@ -1,0 +1,221 @@
+<!doctype html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  {% include 'SEOMetaManager' %}
+  <!-- Basic page needs ================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  
+  {% if settings.favicon_enable %}
+  <link rel="shortcut icon" href="{{ 'Favicon.png' | asset_url }}" type="image/png" />
+  {% endif %}
+
+  {% comment %}
+  {% include 'title-description' %}  
+  {% endcomment %}
+  
+  <!-- Helpers ================================================== -->
+
+  {% include 'social-meta-tags' %}
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta name="theme-color" content="{{ settings.color_primary }}">
+  
+  <!-- Disable Pinch Zoom ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="HandheldFriendly" content="true" />
+
+  <!-- CSS ================================================== -->
+
+  {{ 'test.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+  <link href="//cdn.rawgit.com/noelboss/featherlight/1.7.7/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+
+  <!-- Header hook for plugins ================================================== -->
+
+
+  {{ content_for_header }}
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NDSLF9K');</script>
+  <!-- End Google Tag Manager -->
+  
+  <!-- Start Alexa Certify Javascript -->
+  <script type="text/javascript">
+  _atrk_opts = { atrk_acct:"9Pklj1aAkN00U1", domain:"imperialmotion.com",dynamic: true};
+  (function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+  </script>
+  <noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=9Pklj1aAkN00U1" style="display:none" height="1" width="1" alt="" /></noscript>
+  <!-- End Alexa Certify Javascript --> 
+  
+  <!-- Pinterest Tracking -->
+  <img height="1" width="1" style="display:none;" alt=""
+  src="https://ct.pinterest.com/v2.5/?tid=2619150612470&event=checkout&value=0.00&quantity=1&product_id=&variant_id="/>
+  
+  {% include 'oldIE-js' %}
+  
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' | script_tag }}
+  {{ 'modernizr.min.js' | asset_url | script_tag }}
+  
+  {% if template contains 'affiliate' or template contains 'product' or template contains 'fall' %}
+  {{ 'jquery.colorbox-min.js' | asset_url | script_tag }}
+  {% endif %}
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> 
+  {{ 'slick.min.js' | asset_url | script_tag }}
+  <script src="//cdn.rawgit.com/noelboss/featherlight/1.7.7/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+  {% comment %}
+  {{ 'jquery.zoom.js' | asset_url | script_tag }}
+  {% endcomment %}
+  {{ 'jquery.detect_swipe.js' | asset_url | script_tag }}
+
+  {% comment %}
+    If you store has customer accounts disabled, you can remove the following JS file
+  {% endcomment %}
+  {% if template contains 'customers' %}
+    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+  {% endif %}
+
+
+
+  {% if template contains 'product' %}
+<script type="text/javascript" id="stamped-script-widget" data-api-key="pubkey-hrJY3sYQlWw97Yxgy4JJG9EPu50H3u" src="https://cdn-stamped-io.azureedge.net/files/widget.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn-stamped-io.azureedge.net/files/widget.min.css">
+{% endif %}
+  
+</head>
+
+{% comment %}
+  Add the page template as a class for easy page or template specific styling.
+{% endcomment %}
+<body id="{{ page_title | handle }}" class="noSelect {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NDSLF9K"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->  
+  
+{% include 'nav--drawer' %}
+    
+{% include 'nav--mobile' %} 
+  
+{% include 'ajax-cart-drawer' %}
+     
+  <div id="PageContainer">
+          
+	{% include 'header' %}
+
+    <main class="wrapper main-content" role="main">
+      
+      {{ content_for_layout }}
+
+    </main>
+    
+{% include 'footer' %}
+
+  </div>
+    
+  {{ 'fastclick.min.js' | asset_url | script_tag }}
+  {{ 'timber.js' | asset_url | script_tag }}
+
+  {% comment %}
+    Template-specific js
+  {% endcomment %}
+  <script>
+    {% if resetPassword %}
+      $(function() {
+        timber.resetPasswordSuccess();
+      });
+    {% endif %}
+  </script>
+
+    {% comment %}
+    Ajaxify your cart with this plugin.
+    Documentation:
+      - http://shopify.com/timber#ajax-cart
+  {% endcomment %}
+  {% if settings.ajax_cart_method == "drawer" %}
+    {{ 'handlebars.min.js' | asset_url | script_tag }}
+    {% include 'ajax-cart-template' %}
+    {{ 'ajax-cart.js' | asset_url | script_tag }}
+    <script>
+      jQuery(function($) {
+        ajaxCart.init({
+          formSelector: '#AddToCartForm',
+          cartContainer: '#CartContainer',
+          addToCartSelector: '#AddToCart',
+          cartCountSelector: '#CartCount',
+          cartCostSelector: '#CartCost',
+          moneyFormat: {{ shop.money_format | json }}
+        });
+      });
+
+      jQuery(document.body).on('afterCartLoad.ajaxCart', function(evt, cart) {
+        // Bind to 'afterCartLoad.ajaxCart' to run any javascript after the cart has loaded in the DOM
+        timber.RightDrawer.open();
+      });
+    </script>
+  {% endif %}
+  
+{% if template contains 'product' %}
+<!--- Swatch Java --->  
+<script>
+jQuery(function() {
+  jQuery('.swatch :radio').change(function() {
+    var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+    var optionValue = jQuery(this).val();
+    jQuery(this)
+      .closest('form')
+      .find('.single-option-selector')
+      .eq(optionIndex)
+      .val(optionValue)
+      .trigger('change');
+  });
+});
+</script>
+{% endif %}  
+  
+{% include 'search-autocomplete' %}
+  
+{% if template == 'product' %}
+{% include 'back-in-stock-helper' %}
+{% endif %}
+  
+  <!-- Klaviyo Tracking -->  
+  <script type="text/javascript">
+  var _learnq = _learnq || [];
+  _learnq.push(['account', 'Jymn3P']);
+  (function () {
+  var b = document.createElement('script'); b.type = 'text/javascript'; b.async = true;
+  b.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'a.klaviyo.com/media/js/analytics/analytics.js';
+  var a = document.getElementsByTagName('script')[0]; a.parentNode.insertBefore(b, a);
+  })();
+  </script>  
+  
+  <!-- Google Code for Remarketing Tag -->
+  <!--------------------------------------------------
+  Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
+  --------------------------------------------------->
+  <script type="text/javascript">
+  /* <![CDATA[ */
+  var google_conversion_id = 964939082;
+  var google_custom_params = window.google_tag_params;
+  var google_remarketing_only = true;
+  /* ]]> */
+  </script>
+  <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+  </script>
+  <noscript>
+  <div style="display:inline;">
+  <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/964939082/?guid=ON&amp;script=0"/>
+  </div>
+  </noscript>
+
+  
+</body>
+</html>

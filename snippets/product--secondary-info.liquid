@@ -1,0 +1,36 @@
+<div class="grid--full product-secondary-box">    
+  <div class="grid__item large--one-half medium-down--hide no-padding product-secondary-left"> 
+    {% if product.metafields.c_f.product-lifestyle %}   
+    <div class="grid--full product-secondary-left-images">
+      <div class="grid__item large--one-half product-secondary-main">
+        <div class="product-secondary-main-large" style="background: url({{ product.metafields.c_f.product-lifestyle }}) no-repeat center center; background-size: cover;"></div>
+      </div>
+    </div>
+    {% else %}
+    {% if product.metafields.c_f.product_highlight_1 %}
+    <div class="grid--full product-secondary-left-images">
+      <div class="grid__item large--one-half product-secondary-main">
+        <div class="product-secondary-main-large" style="background: url({{ product.metafields.c_f.product_highlight_1 }}) no-repeat left center; background-size: cover;"></div>
+      </div>
+      <ul class="grid__item large--one-quarter product-secondary-images no-bullets">
+        <li>
+          <div class="product-secondary-image-1" style="background: url({{ product.metafields.c_f.product_highlight_2 }}) no-repeat left top; background-size: cover;"></div>
+        </li>
+        <li>
+          <div class="product-secondary-image-2" style="background: url({{ product.metafields.c_f.product_highlight_3 }}) no-repeat left top; background-size: cover;"></div>
+        </li>
+      </ul>
+    </div>    
+    {% else %}
+    {% include 'product--promos' %}    
+    {% endif %}
+    {% endif %}
+  </div>
+  <div class="grid__item large--one-half product-tabs rte no-padding" itemprop="description">
+    {% include 'product--tabs' %}
+  </div>
+</div>
+
+
+            
+  

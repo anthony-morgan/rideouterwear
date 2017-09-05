@@ -1,0 +1,47 @@
+<li class="mobile-nav__item" aria-haspopup="true">
+  <div class="mobile-nav__has-sublist">
+    <a href="/collections/womens" class="mobile-nav__link">Womens</a>
+    <div class="mobile-nav__toggle">
+      <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
+        <span class="icon icon-plus" aria-hidden="true"></span>
+        <span class="fallback-text">See More</span>
+      </button>
+      <button type="button" class="icon-fallback-text mobile-nav__toggle-close">
+        <span class="icon icon-minus" aria-hidden="true"></span>
+        <span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span>
+      </button>
+    </div>
+  </div>
+  <ul class="mobile-nav__sublist">
+     <li class="mobile-nav__item">
+       <a class="mobile-nav__link">Tops</a>
+       <ul class="">
+       {% for link in linklists.womens-tops.links %}
+         <li class="mobile-nav__item">
+           <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title | escape }}</a>
+         </li>
+       {% endfor%}
+       </ul>	
+     </li>
+     <li class="mobile-nav__item">
+       <a href="/collections/womens-swim" class="mobile-nav__link">Swim</a>
+       <ul class="">
+       {% for link in linklists.womens-swim.links %}
+         <li class="mobile-nav__item">
+           <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title | escape }}</a>
+         </li>
+       {% endfor%}
+       </ul>	
+     </li>
+     <li class="mobile-nav__item">
+       <a class="mobile-nav__link">Collections</a>
+       <ul class="">
+       {% for link in linklists.womens-collections.links %}
+         <li class="mobile-nav__item">
+           <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title | escape }}</a>
+         </li>
+       {% endfor%}
+       </ul>	
+     </li>
+  </ul>
+</li>

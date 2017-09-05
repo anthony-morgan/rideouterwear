@@ -1,0 +1,57 @@
+{% layout none %}<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
+{% assign useSEOtitle = true %}
+{% assign useSEOdescription = true %}
+{% assign CountryCode = 'US' %}
+{% assign Color = "" %}
+{% assign Size = "" %}
+<channel>
+<title>{{ shop.name }}</title>
+  <link>{{ shop.url }}</link>
+<description>{{ collection.description | strip_html | strip_newlines | replace: '&', '&amp;' }}</description>
+{% for product in collection.products %} 
+  {% assign GoogleProductCategory = product.metafields.google.google_product_type %}
+  {% assign Gender = product.metafields.google.gender %}
+  {% assign AgeGroup = product.metafields.google.age_group %}     
+  {% for variant in product.variants %}
+    {% assign Color = "" %}
+    {% assign Size = "" %}
+    {% for option in product.options %}
+  	{% if option == 'Color' %}{% capture Color %}{{ variant.options[forloop.index0] }}{% endcapture %}
+  	{% elsif option == 'Size' %}{% capture Size %}{{ variant.options[forloop.index0]  }}{% endcapture %}
+  	{% endif %}
+  	{% endfor %}   
+    {% capture productTitle %}{{ product.vendor }} {{ product.title }} {{ Color }}{% endcapture %}
+    {% if useSEOtitle and product.metafields.global.title_tag.size > 0 %}{% assign productTitle = product.metafields.global.title_tag %}{% endif %}
+    {% assign productDescription = product.description %}
+    {% if useSEOdescription and product.metafields.global.description_tag.size > 0 %}{% assign productDescription = product.metafields.global.description_tag %}{% endif %}
+<item>
+<g:id>{{ variant.id }}</g:id>
+<g:title>{{ productTitle | replace: '&', '&amp;' }}</g:title>
+<g:description>{{ productDescription | strip_html | strip_newlines | replace: '&', '&amp;' }}</g:description>
+{% unless Color == "" %}<g:color>{{ Color | strip_html | strip_newlines | replace: '&', '&amp;' }}</g:color>{% endunless %}
+<g:product_type>{{ product.type }}</g:product_type>
+<g:link>{{ shop.url }}{{ variant.url }}</g:link>
+<g:image_link>http:{% if variant.image.src %}{{ variant.image.src | product_img_url: 'grande' }}{% else %}{{ product.featured_image.src | product_img_url: 'grande' }}{% endif %}</g:image_link>
+<g:brand>{{ product.vendor }}</g:brand>
+<g:condition>new</g:condition>
+<g:availability>{% if variant.available %}in stock{% else %}out of stock{% endif %}</g:availability>
+<g:price>{{ variant.price | money_without_currency }} {{ shop.currency }}</g:price>
+<g:gtin>{{ variant.barcode }}</g:gtin>
+<g:shipping_weight>{{ variant.weight | weight_with_unit }}</g:shipping_weight>
+<g:item_group_id>{{ product.id }}</g:item_group_id>
+<g:google_product_category>{{ GoogleProductCategory | replace: '&', '&amp;'  }}</g:google_product_category>
+<g:mpn>{{ variant.sku }}</g:mpn>
+<g:age_group>{{ AgeGroup }}</g:age_group>
+{% unless Size == "" %}<g:size>{{ Size | strip_html | strip_newlines | replace: '&', '&amp;' }}</g:size><g:size_system>US</g:size_system>{% endunless %}
+<g:gender>{{ Gender }}</g:gender>
+<g:custom_label_0>{{ product.metafields.google.custom_label_0 }}</g:custom_label_0>
+<g:custom_label_1>{{ product.metafields.google.custom_label_1 }}</g:custom_label_1>
+<g:custom_label_2>{{ product.metafields.google.custom_label_2 }}</g:custom_label_2>
+<g:custom_label_3>{{ product.metafields.google.custom_label_3 }}</g:custom_label_3>
+<g:custom_label_4>{{ product.metafields.google.custom_label_4 }}</g:custom_label_4>
+</item>
+{% endfor %}
+{% endfor %}
+</channel>
+</rss>

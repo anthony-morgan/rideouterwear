@@ -1,0 +1,43 @@
+<!--- Collection Banner --->
+{% unless collection.title contains 'Beanies' or collection.title contains 'Farewell' or collection.title contains 'IM Active' or collection.title contains 'Postcards From Paradise' or collection.title contains 'Summer 17' or collection.title contains'IM x Kaskade' or collection.title == 'Accessories' %}
+<div class="grid--full  collection--banner-full {{ collection.handle }}">
+ <a href="{{ collection.url }}">
+  <div class="collection--border collection--banner-full-image" style="background: url({{ collection.image | img_url: 'master' }}) no-repeat center center; background-size: cover;">
+    {% if collection.title == 'Carbon Premier Boardshorts' %}{% else %}
+    <div class="overlay">
+      <div class="collection--banner-full-text text-center">
+        <h1 class="btn--secondary banner-button">{{ collection.title }}</h1>
+      </div>
+    </div>
+    {% endif %}
+  </div> 
+  </a>
+</div>
+{% endunless %}
+
+{% comment %}
+
+OLD COLLECTION HEADER
+
+{% if collection.description != blank %}
+      <header class="section-header">
+        <h1 class="section-header__title">{{ collection.title }}</h1>
+        <div class="rte rte--header">
+          {{ collection.description }}
+        </div>
+      </header>
+      <hr>
+      <div class="section-header">
+        <div class="section-header__right">
+          {% include 'collection-sidebar' %}
+        </div>
+      </div>
+    {% else %}
+      <header class="section-header">
+        <h1 class="section-header__title section-header__left">{{ collection.title }}</h1>
+        <div class="section-header__right">
+          {% include 'collection-sorting' %}
+        </div>
+      </header>
+    {% endif %}
+{% endcomment %}

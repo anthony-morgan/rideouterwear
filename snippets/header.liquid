@@ -1,0 +1,37 @@
+<header class="global-header" role="banner">
+  <div class="desktop-header medium-down--hide">
+  	{% include 'desktop-store-messages' %}
+    {% include 'desktop-nav' %}
+  </div>
+  <div class="mobile-header large--hide medium-down--show">
+  	{% comment %}{% include 'mobile-store-messages' %}{% endcomment %}
+    {% include 'mobile-bar' %} 
+  </div>      
+            
+ {% comment %}
+      <div class="wrapper">
+
+        <div class="grid--full grid--table">
+          
+
+      
+          <div class="grid__item large--one-half large--text-right medium-down--hide">
+            
+           
+            {% include 'cart-counter' %}
+            
+            {% include 'customer-accounts' %}
+            
+			
+            <div class="site-header__search">
+              {% include 'search-bar' %}
+            </div>
+            
+            
+          </div>
+        </div>
+
+      </div>
+ {% endcomment %}
+  
+</header>

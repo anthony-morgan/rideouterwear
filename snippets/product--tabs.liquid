@@ -1,0 +1,33 @@
+<div class="grid__item sections-background border-tabs no-padding">    
+    <ul class="sections">
+    	<li><a href="#tab-1">Reviews</a></li>
+    	<li><a href="#tab-2">Shipping & Returns</a></li>
+    </ul>
+</div>
+<div class="tabs--reviews" id="tab-1">
+  <span class="stamped-product-reviews-badge" data-id="{{ product.id }}" style="display: inline-block;float: left; margin-bottom: -25px; margin-left: 10px;"></span> 
+
+  <div id="stamped-reviews-widget" data-widget-type="carousel" data-limit-words="300" data-random="False" data-fill-empty="False" data-product-ids="{{product.id}}" style="margin: 10px;"></div>
+
+
+  <div id="stamped-main-widget" class="stamped-main-widget"
+data-product-id="{{ product.id }}"
+data-name="{{ product.title | escape }}"
+data-url="{{ shop.url }}{{ product.url }}"
+data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}"
+data-description="{{ product.description | escape }}"
+data-product-sku="{{product.handle}}">
+  {{ product.metafields.stamped.reviews }}
+</div>
+</div>
+<div id="tab-2">
+{% include 'product--tabs-shipping' %}
+</div>
+	  
+	  
+
+<style>
+#stamped-reviews-widget[data-widget-type="carousel"] .stamped-carousel-scroll {
+    letter-spacing: 0px !important;
+}
+</style>

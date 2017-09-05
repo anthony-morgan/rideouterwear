@@ -1,0 +1,51 @@
+<!-- /templates/blog.liquid -->
+{% comment %}
+
+  Loop through a defined number of articles with the 'paginate' tag.
+  Don't forget to close the tag after your loop.
+
+{% endcomment %}
+
+{% paginate blog.articles by 5 %}
+
+{% for article in blog.articles %}
+ {% if forloop.last != true %}
+<div class="grid article-banner">
+  <div class="medium-down--show large--hide article-banner-image">{{ article | img_url: '1024x1024' | img_tag: article.title }}</div>
+  <div class="medium-down--hide article-banner-image"><img src="{{ article.metafields.c_f.desktop_featured }}"></div>       
+  <div class="grid__item large--three-quarters push--large--one-eighth no-padding article-banner-text"> 
+    <h1 class="text-center">{{ article.title }}</h1>
+  </div>
+</div>
+ {% endif %}
+ {% endfor %}
+
+{% comment %}
+  This template is also used for listing out articles of a specific tag.
+  You can change layouts or styles by checking if current_tags is true.
+{% endcomment %}
+<div class="grid--rev">
+  <div class="grid__item no-padding">
+    {% for article in blog.articles %}
+    <ul class="article large--one-third no-bullets">
+      <li>
+        <a class="article-image" href="{{ article.url }}">
+          <div class="medium-down--show large--hide">{{ article | img_url: '1024x1024' | img_tag: article.title }}</div>
+          <div class="medium-down--hide"><img src="{{ article.metafields.c_f.desktop_featured }}"></div>       
+          <div class="article-info">
+            <h2>{{ article.title }}</h2>
+          </div>
+        </a>
+      </li>
+    </ul>      
+    {% unless forloop.last %}{% endunless %}
+    {% endfor %}
+
+    {% if paginate.pages > 1 %}
+    <div class="pagination">
+      {{ paginate | default_pagination }}
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endpaginate %}

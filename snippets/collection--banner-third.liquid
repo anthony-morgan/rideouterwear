@@ -1,0 +1,89 @@
+<div class="grid--full medium-down--hide {{collection.handle}}">
+  <div class="grid__item large--one-third medium--full border-left third">
+    <div class="homepage--left-third" style="background: url({{ collection.metafields.c_f.banner-third-left-mobile }}) no-repeat center center; background-size: cover;">      
+      <div class="overlay"> 
+        <a href="{{ collection.metafields.c_f.banner-third-left-link }}">
+          <div class="third-text">
+          	<h4 class="btn--secondary">{{ collection.metafields.c_f.banner-third-left-text }}</h4>
+          	{% comment %}<button class="btn--secondary">Shop Now</button>{% endcomment %}
+       	  </div>
+        </a>
+      </div>
+    </div>
+  </div>
+   <div class="grid__item large--one-third medium--full border third">
+    <div class="homepage--center-third" style="background: url({{ collection.metafields.c_f.banner-third-center-mobile }}) no-repeat center center; background-size: cover;">      
+      <div class="overlay"> 
+        <a href="{{ collection.metafields.c_f.banner-third-center-link }}">
+          <div class="third-text">
+          	<h4 class="btn--secondary">{{ collection.metafields.c_f.banner-third-center-text }}</h4>
+          	{% comment %}<button class="btn--secondary">Shop Now</button>{% endcomment %}
+       	  </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="grid__item large--one-third medium--full right border-right third">
+    <div class="homepage--right-third" style="background: url({{ collection.metafields.c_f.banner-third-right-mobile }}) no-repeat center center; background-size: cover;">
+      <div class="overlay"> 
+        <a href="{{ collection.metafields.c_f.banner-third-right-link }}">
+          <div class="third-text">
+          	<h4 class="btn--secondary">{{ collection.metafields.c_f.banner-third-right-text }}</h4>
+          	{% comment %}<button class="btn--secondary">Shop Now</button>{% endcomment %}
+       	  </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<div class="grid--full large--hide {{ collection.handle }}">
+  <div class="grid__item">
+    <ul class="mobile--slider">
+      <li>
+        <div class="homepage--left-third" style="background: url({{ collection.metafields.c_f.banner-third-left-mobile }}) no-repeat center center; background-size: cover;">
+          <div class="overlay"> 
+            <a href="{{ collection.metafields.c_f.banner-third-left-link }}">
+              <div class="third-text">
+          	    <h4 class="btn--secondary">{{ collection.metafields.c_f.banner-third-left-text }}</h4>
+          	{% comment %}<button class="btn--secondary">Shop Now</button>{% endcomment %}
+       	  	  </div>
+        	</a>
+      	  </div>
+        </div>
+      </li>
+      <li>
+        <div class="homepage--center-third" style="background: url({{ collection.metafields.c_f.banner-third-center-mobile }}) no-repeat center center; background-size: cover;">
+          <div class="overlay"> 
+            <a href="{{ collection.metafields.c_f.banner-third-center-link }}">
+              <div class="third-text">
+          	    <h4 class="btn--secondary">{{ collection.metafields.c_f.banner-third-center-text }}</h4>
+          	{% comment %}<button class="btn--secondary">Shop Now</button>{% endcomment %}
+       	  	  </div>
+        	</a>
+      	  </div>
+        </div>
+      </li>
+      <li>
+        <div class="homepage--right-third" style="background: url({{ collection.metafields.c_f.banner-third-right-mobile }}) no-repeat center center; background-size: cover;">
+          <div class="overlay"> 
+            <a href="{{ collection.metafields.c_f.banner-third-right-link }}">
+              <div class="third-text">
+          	    <h4 class="btn--secondary">{{ collection.metafields.c_f.banner-third-right-text }}</h4>
+          	{% comment %}<button class="btn--secondary">Shop Now</button>{% endcomment %}
+       	  	  </div>
+        	</a>
+      	  </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<script> 
+  $('.mobile--slider').slick({
+  slidesToShow: 1,
+  fade: true,
+});
+</script>

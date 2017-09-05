@@ -1,0 +1,46 @@
+<!-- /templates/blog.liquid -->
+{% comment %}
+
+  Loop through a defined number of articles with the 'paginate' tag.
+  Don't forget to close the tag after your loop.
+
+{% endcomment %}
+
+<div class="grid--full  collection--banner-full">
+ <a href="/blogs/lookbooks/fall-17-morocco">
+  <div class="lookbook--border collection--banner-full-image" style="background: url({{ 'Fall-17-Morocco' | asset_url }}) no-repeat center center; background-size: cover;">
+    <div class="overlay">
+      <div class="collection--banner-full-text text-center">
+        <h1 class="btn--secondary">Fall 17 Morocco</h1>
+      </div>
+    </div>
+  </div> 
+  </a>
+</div>
+
+<div class="grid--rev">  
+    <div class="grid__item no-padding"> 
+  <ul class="blog--lookbook grid--full no-bullets">
+    {% for article in blog.articles %}
+    {% unless article.title contains 'Morocco' %}
+    <li class="grid__item large--one-quarter border--motion">
+        <a class="" href="{{ article.url }}">
+          <div class="blog--lookbook-image" {% if article.image == blank %}style="background-color: black;" {% else %} style="background: url({{ article.image | img_url: '1024x1024' }}) no-repeat center center; background-size: cover;" {% endif %} >
+            <div class="lookbook-overlay"></div>
+              <div class="blog--lookbook-info">
+                <h2>{{ article.title }}</h2>
+            </div>
+          </div>
+        </a>
+    </li>
+   {% unless forloop.last %}{% endunless %}
+    {% endunless %}
+   {% endfor %}
+  </ul>    
+  </div>
+</div>
+
+
+
+
+

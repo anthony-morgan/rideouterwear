@@ -1,0 +1,23 @@
+<div class="nav-bar nav bar wrapper grid mobile-bar" id="MenuScroll">
+    <div class="grid__item one-third burger-left site-nav--mobile mobile-bar--burger">
+      <button type="button" class="icon-fallback-text site-nav__link js-drawer-open-left burger-left mobile-bar--burger-link" aria-controls="NavDrawer" aria-expanded="false">
+        <span class="icon icon-hamburger" aria-hidden="true"></span>
+        <span class="fallback-text">{{ 'layout.navigation.menu' | t }}</span>
+      </button>
+    </div>
+    <div class="grid__item one-third mobile-header__logo-link mobile-bar--logo">
+      <a href="/" itemprop="url">
+        <img src="{{ 'mobile-logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
+      </a>
+    </div>
+    <div class="grid__item one-third text-right cart-pad site-nav--mobile cart-right mobile-bar--cart">
+      <a href="/cart" class="js-drawer-open-right site-nav__link cart-right" aria-controls="CartDrawer" aria-expanded="false">
+        <span class="icon-fallback-text">
+          <span class="icon icon-cart" aria-hidden="true"></span>
+          <span class="fallback-text">{{ 'layout.cart.title' | t }}</span>
+        </span>
+      </a>
+    </div>
+</div>
+
+

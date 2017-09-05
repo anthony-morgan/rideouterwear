@@ -1,0 +1,27 @@
+{% if product.tags contains 'Chill Seeker' %}
+<div class="grid--full">
+  <div class="grid__item breadcrumb-highlight">
+    <a href="/collections/chill-seeker">
+      <img src="{{ 'chill-seeker-crumb.jpg' | asset_url }}">
+    </a>
+  </div>
+</div>
+{% endif %}
+{% if product.tags contains 'NCT' %}
+<div class="grid--full">
+  <div class="grid__item breadcrumb-highlight">
+    <a href="/collections/nano-cure-tech">
+      <img src="{{ 'nct-crumb.jpg' | asset_url }}">
+    </a>
+  </div>
+</div>
+{% endif %}
+{% if product.tags contains 'Reflective' %}
+<div class="grid--full">
+  <div class="grid__item breadcrumb-highlight">
+    <a href="/collections/reflective">
+      <img src="{{ 'reflective-crumb.jpg' | asset_url }}">
+    </a>
+  </div>
+</div>
+{% endif %}

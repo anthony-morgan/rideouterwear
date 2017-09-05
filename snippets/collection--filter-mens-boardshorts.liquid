@@ -1,0 +1,18 @@
+<li class="collection--filter-list" aria-haspopup="true">
+  <a href="/collections/boardshorts" class="collection--filter-bar-link">All</a>
+</li>
+  {% for link in linklists.filter-mens-boardshort-fit.links %}
+<li class="collection--filter-list medium-down--hide" aria-haspopup="true">
+  <a href="{{ link.url }}" class="collection--filter-bar-link">{{ link.title }}</a>
+  {% endfor %}
+</li>
+
+<li class="collection--filter-list-mobile medium-down--show large--hide">
+  <select class="filter" name="links" onchange="window.location.href=this.value;">
+	<option value="" selected="selected">Length</option>     
+    {% for link in linklists.filter-mens-boardshort-fit.links %}
+    <option value="{% if template == 'collection' %}{{ link.url }}{% else %}{{ link.url | append: "?view=list" }}{% endif %}">{{ link.title }}</option> 
+    {% endfor %}
+  </select>
+</li>
+
