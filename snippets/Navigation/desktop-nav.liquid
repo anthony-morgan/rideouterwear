@@ -1,3 +1,31 @@
+{% comment %} Store Messages {% endcomment %}
+
+<div id="store-messages">  
+  <div>
+    <div class="message">
+      <a href="pages/shipping-and-returns">
+        <p class="free">Free Shipping | Free Returns<p>
+      </a>
+      <div class="search-icon">
+        <a href="/search" class="icon-fallback-text">
+          <span class="icon icon-search" aria-hidden="true"></span>
+          <span class="fallback-text">{{ 'general.search.submit' | t }}</span>
+      </a>
+      </div>
+      <div class="cart-right">
+        <a href="/cart" class="js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
+          <span class="icon-fallback-text">
+            <span class="icon icon-cart" aria-hidden="true"></span>
+            <span class="fallback-text">{{ 'layout.cart.title' | t }}</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %} Desktop Nav {% endcomment %}
+
 <div class="desktop-nav">
   <div class="desktop-nav--logo">
     <a href="/" itemprop="url">
@@ -5,7 +33,22 @@
     </a>
   </div>
   <nav class="desktop-nav--holder" role="navigation">
-    {% include 'desktop-nav--bar' %}
+    <ul class="desktop-nav--bar" id="AccessibleNav">
+  		<li class="desktop-nav--list" aria-haspopup="true">
+  		  <a href="/collections/mens" class="desktop-nav--list-link">Mens</a>
+  		  <div class="desktop-dropdown">
+  		    <ul class="desktop-dropdown--columns no-bullets">
+  		      <li class="desktop-dropdown--columns-list">
+  		        <a>Headwear</a>
+  		        <ul class="desktop-dropdown--child no-bullets">
+  		        {% for link in linklists.headwear.links %}
+  		          <li class="desktop-dropdown--child-list">{{ link.title | link_to: link.url }}</li>
+  		        {% endfor %}
+  		        </ul>
+  		      </li>
+  		    </ul>
+  		  </div>
+  		</li>
+		</ul>
   </nav>
 </div>
-
