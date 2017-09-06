@@ -1,0 +1,272 @@
+.collection--icon {
+	position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    margin-right: 30px;
+   @include at-query ($max, $medium) { 
+     margin-right: 5px;
+     top: -7px;
+   }
+  
+}
+
+
+.collection--banner-title {
+  width: 318px;
+  padding: 10px;
+  border: solid white 2px;
+  
+    @include at-query ($max, $medium){ 
+      margin: auto;
+  }
+}
+
+.collection--banner-half-image {
+  height: 100%;
+}
+
+.collection--banner-half-text {
+  padding-top: 20px;  
+  color: white;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  top: 40%;
+  width: 100%;
+  
+}
+
+
+.collection--banner-third-image {
+  height: 100%;  
+}
+
+.collection--banner-third-text {
+  padding-top: 20px;  
+  color: white;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  top: 40%;
+  width: 100%;
+}
+
+.collection--banner-text-image {
+}
+
+
+.collection--banner-full-image {
+  height: 100%;
+}
+
+
+/*--- Collection Images ---*/
+
+.collection--banner-full {
+    @include at-query ($max, $small){
+      height: 200px;
+      }
+  
+    @include at-query ($min, $postSmall){
+      height: 300px;
+      }
+  
+    @include at-query ($min, $large){
+      height: 600px;
+      }
+}
+
+
+.collection--banner-full-text {
+  text-align: center;
+  color: white;
+
+  
+  @include at-query ($max, $medium){
+    padding-top: 70px;
+  .btn--secondary.banner-button {
+    padding: 10px 30px;
+  }
+
+
+  }
+  
+  @include at-query ($min, $large){
+    padding-top: 250px;
+  }
+   
+}
+
+.fall-17 .overlay, .tees-and-tanks .overlay{
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+}
+
+/* Collection */
+
+.collection--banner {
+  height: 300px;
+}
+
+.collection--banner-image {
+  height: 100%;
+}
+
+.collection--banner-text {
+  top: 95px;  
+  color: white;
+  position: absolute;
+}
+
+/*================ Dropdowns ================*/
+
+.collection--filter-dropdown {
+  display: none;
+  position: absolute;
+  margin: 0;
+  z-index: $zindexNavDropdowns;
+  background: lightgrey;
+  padding: 5px 0 0 20px;
+  width: 145px;
+
+
+  .supports-no-touch .collection--filter-list:hover &,
+  .collection--filter-list.collection--filter-bar-hover &,
+  .collection--filter-bar-focus + & {
+    display: block;
+  }
+
+  a {
+    background-color: lightgrey;
+
+    &:hover,
+    &:active,
+    &:focus {
+    }
+  }
+}
+
+.collection--filter-bar-link {
+  display: block;
+  text-decoration: none;
+  padding: 0 30px;
+  white-space: nowrap;
+      
+  @include at-query ($max, $small){
+      padding: 0 12px;
+    }
+  
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: grey;
+  }
+}
+
+
+
+.collection--filter-dropdown {
+  position: absolute;
+}
+
+.collection--filter-dropdown-list {
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 0 0 10px;
+  font-family: HelveticaNeueLTStd-Cn;
+}
+
+.collection--filter-list-view {
+  float: right;
+}
+
+.collection--view {
+  margin: -10px 0;
+}
+
+li.collection--filter-list-sort {
+  float: right;
+  margin: -2px 0;
+  padding-left: 20px;
+  
+  select#SortBy {
+    border: none;
+    padding: 0;
+    text-transform: uppercase;
+  }
+}
+
+li.collection--filter-list-mobile {
+  float: left;
+  display: inline-block;
+  margin-top: -1px;
+  
+  select {
+    border: none;
+    width: auto;
+    text-transform: uppercase;
+    background: none;
+    
+    &.filter {
+      padding-right: 10px;
+    }
+  }
+}
+
+.collection--filter-list {
+  float: left;
+  
+  @include at-query ($max, $medium){
+    font-size: 14px;
+    
+    a {
+      padding-left: 0px;
+    }
+  }
+}
+
+/* Collection Filter */
+
+.collection--filter {
+  border-top: 10px solid white;
+  
+  	ul{
+      text-transform: uppercase;
+      font-size: 16px;
+  	}
+    button {
+    float: right;
+    margin-top: -5px;
+  }
+}
+  
+.collection--filter-bar {
+  cursor: default;
+  height: 42px;
+  background-color: lightgrey;
+  margin: 0px 0px 10px;
+  padding: 10px 20px;
+  
+    @include at-query ($max, $small){
+      padding: 10px;
+    }
+
+  li {
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  > li {
+    display: inline-block;
+    text-align: left;    
+  }
+}

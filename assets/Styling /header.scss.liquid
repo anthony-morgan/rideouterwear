@@ -4,14 +4,16 @@
 .global-header {
   padding: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 15;
+  position: fixed;
+  background-color: white;   
 
   @include at-query ($max, $medium) {
 	position: fixed;
   }
   
   @include at-query ($min, $large) {
-    height: 158px;
+
   }
   .grid--table {
     display: table;
@@ -27,9 +29,12 @@
 }
 
 .desktop-header {
+  background-color: $colorNav;
 }
 
 .mobile-header {
+  border-bottom: 2px solid black;
+  background-color: white;   
 }
 
 /* Store Messages */
@@ -77,13 +82,14 @@
     display: none;
 	}
 }
-  
+
 /* Desktop Nav */
 
 .desktop-nav {
   @include clearfix();
   margin: 0 auto;
   width: 100%;
+  height: 100px;
 
   @include at-query ($min, $small) {
     padding: 0px;
@@ -96,10 +102,11 @@
 /* Desktop Nav Logo */
 
 .desktop-nav--logo {
-  max-width: 110px;
-  height: 110px;
+  max-width: 100px;
+  height: 100px;
   text-align: center;
-  margin: 0 auto;
+  margin-left: 10px;
+  margin-top: 10px;
   
   @include at-query ($max, $medium) {
     display: none;
@@ -113,10 +120,12 @@
 
   a, img {
     display: block;
+    position: absolute;
+    z-index: 10;
   }
 
   img {
- 	 max-width: 115px;
+ 	 max-width: 100px;
   }
   @include at-query ($max, $medium) {
      display: none;
@@ -126,26 +135,26 @@
 /* Desktop Nav Bar */
 
 .desktop-nav--holder {
-  background-color: $colorNav;
-  position: static;
   visibility: visible;
   width: 100%;
+  margin: 0;
+  padding-left: 135px;
+  position: relative;
+  top: -70px;
+  width: 100%;
+
 }
 
 .desktop-nav--bar {
   font-size: em(18px);
   cursor: default;
   text-align: left;
-  margin: 0;
-  padding-left: 150px;
-  position: relative;
-  top: -80px;
-  width: 100%;
+
 
   li {
     margin: 0;
     text-transform: uppercase;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
   }
 
   > li {
@@ -158,12 +167,11 @@
 .desktop-dropdown--columns {
   display: none;
   position: absolute;
-  margin: 15px 0 0;
+  margin: 0px 0 0;
   width: 100%;
-  padding: 20px 20px 0px 20px;
+  padding: 20px 20px 0px 175px;
   z-index: $zindexNavDropdowns;
   background: white;
-
 
   .supports-no-touch .desktop-nav--list:hover &,
   .desktop-nav--list.desktop-nav--bar-hover &,
@@ -177,24 +185,33 @@
     &:hover,
     &:active,
     &:focus {
-      background-color: darken($colorNav, 10%);
     }
   }
-}
 
+}
 .desktop-nav--list-link {
   display: block;
   text-decoration: none;
-  padding: 15px 25px 0px 25px;
+  padding: 15px 25px 25px 25px;
   white-space: nowrap;
   color: $colorNavText;
 
   &:hover,
   &:active,
   &:focus {
-    color: darken($colorNavText, 15%);
+    border-bottom: 2px solid black;
   }
+  border-bottom: 0px solid black;
+  /* ^- the important bit. RGB 192,192,192 is the same as #C0C0C0*/
+  
+  -webkit-transition: border 250ms ease;
+  -moz-transition: border 250ms ease;
+  -ms-transition: border 250ms ease;
+  -o-transition: border 250ms ease;
+  transition: border 250ms ease; 
 }
+
+
 
 .desktop-dropdown {
   position: absolute;
@@ -202,11 +219,12 @@
   left: 0;
 }
 
-.desktop-dropdown--colums-list {
+.desktop-dropdown--columns-list {
   float: left;
-  width: 170px;
+  width: auto;
   font-size: 17px;
   text-transform: uppercase;
+  padding-right: 50px
 }
 
 .desktop-dropdown--child {
@@ -218,35 +236,9 @@ li.desktop-dropdown--child-list {
   font-family: HelveticaNeueLTStd-Cn;
   padding-top: 10px;
   padding-bottom: 0px;
-
 }
 
-/* Mobile Header */
-
-.mobile-header {
-  @include clearfix();
-  margin: 0 auto;
-  width: 98%;
-
-  @include at-query ($min, $small) {
-    padding: 0px;
-  }
-  @include at-query ($max, $medium){
-    width: 100%;
-}
-
-.mobile-bar {
-  padding: 0px !important;
-}
-
-.mobile-bar--burger {
-}
-
-.mobile-bar--burger-link{
-}
-  
-.mobile-bar--logo {
-}
-
-.mobile-bar--cart {
+li.desktop-dropdown--child-list-special {
+  padding-top: 10px;
+  padding-bottom: 0px;
 }
