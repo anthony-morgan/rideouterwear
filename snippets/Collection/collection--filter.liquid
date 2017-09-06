@@ -1,54 +1,29 @@
 <div class="grid">
   <div class="grid__item collection--filter no-padding">
     <ul class="collection--filter-bar" id="AccessibleNav">
-      {% if collection.title contains 'Womens Knits' %}
-        {% include 'collection--filter-womens-knits' %}
-      {% endif %}
-      {% if collection.title contains "Mens Tees & Tanks" %}
-        {% include 'collection--filter-mens-tees' %}
-      {% endif %}
-      {% if collection.title contains "Mens Knits" %}
-        {% include 'collection--filter-mens-knits' %}
-      {% endif %}
-      {% if collection.title contains "Mens Shirts" %}
-        {% include 'collection--filter-mens-shirts' %}
-      {% endif %}
-      {% if collection.title contains "Mens Sweatshirts" %}
-        {% include 'collection--filter-mens-sweatshirts' %}
-      {% endif %}
-      {% if collection.title contains "Mens Jackets" %}
-        {% include 'collection--filter-mens-jackets' %}
-      {% endif %}
-      {% if collection.title contains "Mens Boardshorts" %}
-        {% include 'collection--filter-mens-boardshorts' %}
-      {% endif %}
-      {% if collection.title contains "Mens Shorts" %}
-        {% include 'collection--filter-mens-shorts' %}
-      {% endif %}
-      {% if collection.title contains "Mens Pants" %}
-        {% include 'collection--filter-mens-pants' %}
-      {% endif %}
-      {% if collection.title contains "Womens Tees & Tanks" %}
-        {% include 'collection--filter-womens-tees' %}
-      {% endif %}
-      {% if collection.title contains "Womens Swim" %}
-        {% include 'collection--filter-womens-swim' %}
-      {% endif %}
-      {% if collection.title contains "Hats" %}
-        {% include 'collection--filter-accessories-hats' %}
-      {% endif %}
-      {% if collection.title contains "Beanies" %}
-        {% include 'collection--filter-accessories-beanies' %}
-      {% endif %}   
-      {% if collection.title contains "Bags" %}
-        {% include 'collection--filter-bags' %}
-      {% endif %}
-      {% if collection.title contains 'Fall 17' %}
-        {% include 'collection--filter-fall-17' %}
-      {% endif %}
-       {% if collection.title contains 'Chill Seeker' %}
-        {% include 'collection--filter-chill-seeker' %}
-      {% endif %}
+      
+      {% comment %} All Products {% endcomment %}  
+      <li class="collection--filter-list" aria-haspopup="true">
+        <a href="/collections/hats" class="collection--filter-bar-link">All</a>
+      </li>
+
+      {% comment %} Desktop Filter // Make Into List with another dropdown list {% endcomment %}
+      {% for link in linklists.{ collection.title | prepend: 'filter.' }.links %}
+      <li class="collection--filter-list medium-down--hide" aria-haspopup="true">
+        <a href="{{ link.url }}" class="collection--filter-bar-link">{{ link.title }}</a>
+      {% endfor %}
+      </li>
+
+      {% comment %} Mobile Filter // Make Into List with another multiple dropdown selectors {% endcomment %}
+      <li class="collection--filter-list-mobile medium-down--show large--hide">
+        <select class="filter" name="links" onchange="window.location.href=this.value;">
+          <option value="" selected="selected">Style</option>     
+          {% for link in linklists.{ collection.title | prepend: 'filter.' }.links %}
+          <option value="{% if template == 'collection' %}{{ link.url }}{% else %}{{ link.url | append: "?view=list" }}{% endif %}">{{ link.title }}</option> 
+          {% endfor %}
+        </select>
+      </li>
+      
       {% include 'collection--sorting' %}
     </ul>
   </div>

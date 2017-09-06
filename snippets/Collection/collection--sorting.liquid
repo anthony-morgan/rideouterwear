@@ -5,10 +5,9 @@
   ?view= parameter.
 {% endcomment %}
 
-{% if collection.title contains 'Tees & Tanks' or collection.title contains 'Jackets' or collection.title contains 'Knits' or collection.title contains 'Sweatshirts' or collection.title contains 'Shirts' or collection.title contains 'Fall 17' %}
 {% if template contains 'list' %}
 <button type="button" title="{{ 'collections.general.grid_view' | t }}" class="change-view{% unless template contains 'list' %} change-view--active{% endunless %}" data-view="grid">
-  <span>{% if collection.title contains 'Womens' %}ON MODEL{% else %}SHOW LESS{% endif %}</span>
+  <span>SHOW LESS</span>
 </button>
 {% else %}
 <button type="button" title="{{ 'collections.general.list_view' | t }}" class="change-view{% if template contains 'list' %} change-view--active{% endif %}" data-view="list">
