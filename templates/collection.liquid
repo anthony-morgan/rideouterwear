@@ -32,11 +32,7 @@
       
       {% for product in collection.products %}
             
-      {% if collection.title contains 'Tees & Tanks' or collection.title contains 'Jackets' or collection.title contains 'Knits' or collection.title contains 'Sweatshirts' or collection.title contains 'Shirts' or collection.title contains 'Fall' %}
-      {% include 'collection--product-grid-tees' %}
-      {% else %}
-      {% include 'collection--product-grid-item' %}
-      {% endif %}
+      {% include 'collection--product-grid-swatches' %}
       
       {% else %}
 

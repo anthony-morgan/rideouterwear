@@ -1,0 +1,173 @@
+{% comment %} Footer Contact {% endcomment %}
+
+<ul class="no-bullets footer-nav--column first">
+  <li class="footer-nav--column-list" aria-haspopup="true">
+    <a href="/" itemprop="url">
+  	  <img class="footer-logo" src="{{ 'mobile-logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
+	</a>
+  	<ul class="footer-nav--sub no-bullets">
+  	  <li class="footer-nav--sub-list">
+  	    <a href="mailto:{{ shop.email_url }}">Email Us</a>
+  	  </li>
+  	  <li class="footer-nav--sub-list"><a href="tel:(844)%20786-8619" value="+18447868619" target="_blank" rel="noopener noreferrer">1-844-786-8619</a> </li>
+  	  <li class="footer-nav--sub-list">Mon-Fri 9-5 PST</li>
+  	</ul>
+  </li>
+</ul>  
+
+{% comment %} Footer Menu List {% endcomment %}
+
+<ul class="no-bullets footer-nav--column">
+  <li class="footer-nav--column-list" aria-haspopup="true">
+    <a href="/collections/womens" class="footer-nav--list-link">Accessories</a>
+  	<ul class="footer-nav--sub no-bullets">
+  	  <li class="footer-nav--sub-list">
+  	    <a href="/collections/headwear">Headwear</a>
+  	  </li>
+  	  <li class="footer-nav--sub-list">
+  	    <a href="/collections/bags">Bags</a>
+  	  </li>
+  	  <li class="footer-nav--sub-list">
+  	    <a href="/collections/other-accessories">other</a>
+  	  </li>
+  	</ul>
+  </li>
+</ul>
+
+{% comment %} Get Connected {% endcomment %}
+
+<ul class="no-bullets footer-nav--column last">
+  <li class="footer-nav--column-list">
+    <a>{{ 'layout.footer.social_title' | t }}</a>
+    <ul class="footer-nav--sub no-bullets">
+      <li class="footer-nav--sub-list last">
+    	<form action="//imperialmotion.us5.list-manage.com/subscribe/post?u=af50074b154ee644b4ee6e636&amp;id=59ee03a25d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="input-group">
+    	  <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="EMAIL" id="mail" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+    	</form>
+        <ul class="inline-list social-icons">
+          <li>
+            <a class="icon-fallback-text" href="https://twitter.com/imperialmotion" title="{{ shop.name }} on Twitter">
+              <span class="icon icon-twitter" aria-hidden="true"></span>
+              <span class="fallback-text">Twitter</span>
+            </a>
+          </li>
+          <li>
+            <a class="icon-fallback-text" href="https://facebook.com/imperialmotion" title="{{ shop.name }} on Facebook">
+              <span class="icon icon-facebook" aria-hidden="true"></span>
+              <span class="fallback-text">Facebook</span>
+            </a>
+          </li>
+          <li>
+            <a class="icon-fallback-text" href="https://instagram.com/imperialmotion" title="{{ shop.name }} on Instagram">
+              <span class="icon icon-instagram" aria-hidden="true"></span>
+              <span class="fallback-text">Instagram</span>
+            </a>
+          </li>
+          <li>
+            <a class="icon-fallback-text" href="https://pinterest.com/imperialmotion" title="{{ shop.name }} on Pinterest">
+              <span class="icon icon-pinterest" aria-hidden="true"></span>
+              <span class="fallback-text">Instagram</span>
+            </a>
+          </li>
+          <li>
+            <a class="icon-fallback-text" href="https://tumblr.com/imperialmotion" title="{{ shop.name }} on Tumblr">
+              <span class="icon icon-tumblr" aria-hidden="true"></span>
+              <span class="fallback-text">Tumblr</span>
+            </a>
+          </li>
+          <li>
+            <a class="icon-fallback-text" href="https://vimeo.com/imperialmotion" title="{{ shop.name }} on Vimeo">
+              <span class="icon icon-vimeo" aria-hidden="true"></span>
+              <span class="fallback-text">Vimeo</span>
+            </a>
+          </li>
+          <li>
+            <a class="icon-fallback-text" href="https://youtube.com/imperialmotion" title="{{ shop.name }} on Youtube">
+              <span class="icon icon-youtube" aria-hidden="true"></span>
+              <span class="fallback-text">Youtube</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>     
+  </li>
+</ul>
+
+{% comment %} Contact Us Mobile {% endcomment %}
+
+
+<div class="grid__item no-padding footer-contact">
+  <ul class="no-bullets footer-nav--sub-list">
+    <li class="footer-logo">
+      <a href="/" itemprop="url">
+        <img src="{{ 'mobile-logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
+      </a>
+    </li>
+    <li>{{ shop.email }}</li>
+    <li>253-779-4400</li>
+    <li>Mon-Fri 9-5 PST</li>
+  </ul>
+</div>
+
+{% comment %} Get Connected Mobile {% endcomment %}
+
+<div class="grid__item no-padding"> 
+  <ul class="no-bullets footer-nav--column mobile">
+    <li class="footer-nav--column-list">
+      <a>{{ 'layout.footer.social_title' | t }}</a>
+      <ul class="footer-nav--sub no-bullets">
+        <li class="footer-nav--sub-list last mobile">
+      	<form action="//imperialmotion.us5.list-manage.com/subscribe/post?u=af50074b154ee644b4ee6e636&amp;id=59ee03a25d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="input-group">
+      	  <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="EMAIL" id="mail" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+      	</form>
+          <ul class="inline-list social-icons mobile">
+            <li>
+              <a class="icon-fallback-text" href="https://twitter.com/imperialmotion" title="{{ shop.name }} on Twitter">
+                <span class="icon icon-twitter" aria-hidden="true"></span>
+                <span class="fallback-text">Twitter</span>
+              </a>
+            </li>
+            <li>
+              <a class="icon-fallback-text" href="https://facebook.com/imperialmotion" title="{{ shop.name }} on Facebook">
+                <span class="icon icon-facebook" aria-hidden="true"></span>
+                <span class="fallback-text">Facebook</span>
+              </a>
+            </li>
+            <li>
+              <a class="icon-fallback-text" href="https://instagram.com/imperialmotion" title="{{ shop.name }} on Instagram">
+                <span class="icon icon-instagram" aria-hidden="true"></span>
+                <span class="fallback-text">Instagram</span>
+              </a>
+            </li>
+            <li>
+              <a class="icon-fallback-text" href="https://pinterest.com/imperialmotion" title="{{ shop.name }} on Pinterest">
+                <span class="icon icon-pinterest" aria-hidden="true"></span>
+                <span class="fallback-text">Instagram</span>
+              </a>
+            </li>
+            <li>
+              <a class="icon-fallback-text" href="https://tumblr.com/imperialmotion" title="{{ shop.name }} on Tumblr">
+                <span class="icon icon-tumblr" aria-hidden="true"></span>
+                <span class="fallback-text">Tumblr</span>
+              </a>
+            </li>
+            <li>
+              <a class="icon-fallback-text" href="https://vimeo.com/imperialmotion" title="{{ shop.name }} on Vimeo">
+                <span class="icon icon-vimeo" aria-hidden="true"></span>
+                <span class="fallback-text">Vimeo</span>
+              </a>
+            </li>
+            <li>
+              <a class="icon-fallback-text" href="https://youtube.com/imperialmotion" title="{{ shop.name }} on Youtube">
+                <span class="icon icon-youtube" aria-hidden="true"></span>
+                <span class="fallback-text">Youtube</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>     
+    </li>
+  </ul>
+</div>
+
+

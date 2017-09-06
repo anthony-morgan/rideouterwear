@@ -46,33 +46,9 @@
       <a class="grid-product__image-link" href="{{ product.url | within: collection }}?variant={{ variant.id }}">
         <img src="{{ variant | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" class="grid-product__image">
       </a>
-      {% unless collection.title == 'Reflective' %}
-      {% if product.tags contains 'Reflective' %}
-      <div class="reflective-icon">
-        <a href="/collections/reflective">
-        	<img src="{{ 'REFLECTIVE_BLACK.png' | asset_url }}">
-        </a>
-      </div>      
-      {% endif %} 
-      {% endunless %}
-      {% unless collection.title == 'Nano Cure Tech' %}
-      {% if product.tags contains 'NCT' %}
-      <div class="nct-icon">
-        <a href="/collections/nano-cure-tech">
-        	<img src="{{ 'NCT_Black.png' | asset_url }}">
-        </a>
-      </div>      
-      {% endif %} 
-      {% endunless %}  
-      {% unless collection.title contains 'Chill Seeker' %}
-      {% if product.tags contains 'Chill Seeker' or product.tags contains 'chill seeker'  %}
-      <div class="seeker-icon">
-        <a href="/collections/chill-seeker">
-        	<img src="{{ 'chill-seeker-logo-black.png' | asset_url }}">
-        </a>
-      </div>      
-      {% endif %} 
-      {% endunless %}  
+
+      {% include 'collection--icons' %} 
+
       {% if sold_out %}
         <div class="grid-product__sold-out">
             {% unless product.available %}
@@ -84,6 +60,7 @@
           <p>{{ 'products.general.save_html' | t: saved_amount: saved_amount }}</p>
         </div>
       {% endif %}
+      
     </div>
     <p class="h3 text-center product-title">
       <a href="{{ product.url | within: collection }}?variant={{ variant.id }}" class="grid-product__meta">{{ product.title }} // {{ color }}</a>

@@ -1,3 +1,49 @@
+{% comment %} Collection Banner Halves {% endcomment %}
+
+<div class="grid--full {{ collection.handle }}">
+  <div class="grid__item large--one-half medium--full border-left-square left square">
+    <div class="homepage--left-half" style="background: url({{ collection.metafields.c_f.banner-half-left-desktop }}) no-repeat center center; background-size: cover;">      
+      <div class="overlay"> 
+        <a href="{{ collection.metafields.c_f.banner-half-left-link }}">
+          <div class="square-text">
+          	<h4 class="btn--secondary">{{ collection.metafields.c_f.banner-half-left-text }}</h4>
+          	{% comment %}<button class="btn--secondary">Shop Now</button>{% endcomment %}
+       	  </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="grid__item large--one-half medium--full right border-right-square square">
+    <div class="homepage--right-half" style="background: url({{ collection.metafields.c_f.banner-half-right-desktop }}) no-repeat center center; background-size: cover;">
+      <div class="overlay"> 
+        <a href="{{ collection.metafields.c_f.banner-half-right-link }}">
+          <div class="square-text">
+          	<h4 class="btn--secondary">{{ collection.metafields.c_f.banner-half-right-text }}</h4>
+          	{% comment %}<button class="btn--secondary">Shop Now</button>{% endcomment %}
+       	  </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div> 
+
+{% comment %} Collection Banner Full {% endcomment %}
+
+<div class="grid--full border banner-full {{collection.handle}}">
+  <div class="overlay">
+    <a href="{{ collection.metafields.c_f.banner-full-link }}">
+  	<div class="homepage--banner-full-image" style="background: url({{ collection.metafields.c_f.banner-full-desktop }}) no-repeat center center; background-size: cover;">
+  	  <div class="text-center banner-full-text">
+  	      <h4 class="btn--secondary">{{ collection.metafields.c_f.banner-full-text }}</h4>
+  	      {% comment %}<button class="btn--secondary">Shop Now</button>{% endcomment %}
+  	  </div>
+  	</div>
+       </a>
+  </div>
+</div>
+
+{% comment %} Collection Desktop Banner Thirds {% endcomment %}
+
 <div class="grid--full medium-down--hide {{collection.handle}}">
   <div class="grid__item large--one-third medium--full border-left third">
     <div class="homepage--left-third" style="background: url({{ collection.metafields.c_f.banner-third-left-mobile }}) no-repeat center center; background-size: cover;">      
@@ -36,6 +82,8 @@
     </div>
   </div>
 </div> 
+
+{% comment %} Collection Mobile Banner Thirds {% endcomment %}
 
 <div class="grid--full large--hide {{ collection.handle }}">
   <div class="grid__item">
@@ -80,6 +128,7 @@
   </div>
 </div>
 
+{% comment %} Slick Carousel {% endcomment %}
 
 <script> 
   $('.mobile--slider').slick({

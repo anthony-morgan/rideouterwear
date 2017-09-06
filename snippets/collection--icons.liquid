@@ -1,0 +1,11 @@
+{% comment %}
+      {% unless collection.title == 'Reflective' %}
+      {% if product.tags contains 'Reflective' %}
+      <div class="reflective-icon">
+        <a href="/collections/reflective">
+        	<img src="{{ 'REFLECTIVE_BLACK.png' | asset_url }}">
+        </a>
+      </div>      
+      {% endif %} 
+      {% endunless %}
+      {% endcomment %}
