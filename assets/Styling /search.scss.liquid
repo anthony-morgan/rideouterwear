@@ -62,3 +62,26 @@
   z-index: 7 !important;
 }
 
+.search-bar {
+  max-width: 100%;
+
+  @include at-query ($max, $medium) {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+  }
+}
+
+.search--page {
+  .input-group {
+    width: 50%;
+    @include at-query ($max, $medium) {
+      width: 100%
+    }
+  }
+  .input-group-field {
+    padding-left: 5px;
+  }
+}
+
+

@@ -1,244 +1,65 @@
+/*================ Search bar in header ================*/
+.nav-search {
+  position: relative;
+  padding: 10px 0;
+
+  @include at-query ($max, $medium) {
+    padding: 0 0 ($gutter / 2);
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+
+
 /*============================================================================
-  #Header
+  #Site Nav and Dropdowns
 ==============================================================================*/
-.global-header {
-  padding: 0;
-  width: 100%;
-  z-index: 15;
-  position: fixed;
-  background-color: white;   
 
-  @include at-query ($max, $medium) {
-	position: fixed;
-  }
+
+/*================ Home to hamburger and cart that toggle drawers ================*/
+.cart-right {
+  padding: 0px;
+
+}
+.cart-pad {
+  padding: 0px;
+}
+.site-nav--mobile {
+  @extend .site-nav;
   
-  @include at-query ($min, $large) {
-
-  }
-  .grid--table {
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-
-    > .grid__item {
-      float: none;
-      display: table-cell;
-      vertical-align: middle;
-    }
-  }
-}
-
-.desktop-header {
-  background-color: $colorNav;
-}
-
-.mobile-header {
-  border-bottom: 2px solid black;
-  background-color: white;   
-}
-
-/* Store Messages */
-
-#store-messages {
-  background: #000000;
-
-	.message {
-  		position: relative;
-  		padding: 15px 0 15px;
-  		text-align: center;
-	}	
-		
-  	.message .free {
-  		line-height:1.3em;
-      	color: #ffffff;
-  		text-transform: uppercase;
-  		margin: 0px;
-    }
-    .message .search-icon {
-        display: inline-block;
-        left: 0;
-    	position: absolute;
-    	top: 13px;
-      	padding-left: 50px;
-	}
-  	.message .search-icon a{
-      	color: white;
-    }
-  	.message .cart-right {
-        display: inline-block;
-        right: 0;
-    	position: absolute;
-    	top: 13px;
-      	padding-right: 50px;
-    }  
-    .message .cart-right a{  
-      	color: white;
-	}
-  	.message p{
-      	margin: 0px;
-    }
-      
-  @include at-query ($max, $medium) {
-    display: none;
-	}
-}
-
-/* Desktop Nav */
-
-.desktop-nav {
-  @include clearfix();
-  margin: 0 auto;
-  width: 100%;
-  height: 100px;
-
-  @include at-query ($min, $small) {
+  &.cart-right {
     padding: 0px;
   }
-  @include at-query ($max, $medium){
-    width: 100%;
-  }
+  
 }
 
-/* Desktop Nav Logo */
-
-.desktop-nav--logo {
-  max-width: 100px;
-  height: 100px;
-  text-align: center;
-  margin-left: 10px;
-  margin-top: 10px;
-  
-  @include at-query ($max, $medium) {
-    display: none;
+.site-nav__link {
+  .icon-arrow-down {
+    position: relative;
+    top: -2px;
+    font-size: 10px;
+    padding-left: $gutter / 4;
   }
   
-  a,
-  a:hover,
-  a:focus {
-    text-decoration: none;
-  }
-
-  a, img {
-    display: block;
-    position: absolute;
-    z-index: 10;
-  }
-
-  img {
- 	 max-width: 100px;
-  }
-  @include at-query ($max, $medium) {
-     display: none;
-  }
-}
-
-/* Desktop Nav Bar */
-
-.desktop-nav--holder {
-  visibility: visible;
-  width: 100%;
-  margin: 0;
-  padding-left: 135px;
-  position: relative;
-  top: -70px;
-  width: 100%;
-
-}
-
-.desktop-nav--bar {
-  font-size: em(18px);
-  cursor: default;
-  text-align: left;
-
-
-  li {
-    margin: 0;
-    text-transform: uppercase;
-    padding-bottom: 10px;
-  }
-
-  > li {
+  .site-nav--mobile & {
     display: inline-block;
-    text-align: left;    
   }
-}
-
-/*================ Dropdowns ================*/
-.desktop-dropdown--columns {
-  display: none;
-  position: absolute;
-  margin: 0px 0 0;
-  width: 100%;
-  padding: 20px 20px 0px 175px;
-  z-index: $zindexNavDropdowns;
-  background: white;
-
-  .supports-no-touch .desktop-nav--list:hover &,
-  .desktop-nav--list.desktop-nav--bar-hover &,
-  .desktop-nav--bar-focus + & {
-    display: block;
+  &.dropdown {
+    padding: 15px;
   }
-
-  a {
-    background-color: $colorNav;
-
-    &:hover,
-    &:active,
-    &:focus {
-    }
-  }
-
-}
-.desktop-nav--list-link {
-  display: block;
-  text-decoration: none;
-  padding: 15px 25px 25px 25px;
-  white-space: nowrap;
-  color: $colorNavText;
-
-  &:hover,
-  &:active,
-  &:focus {
-    border-bottom: 2px solid black;
-  }
-  border-bottom: 0px solid black;
-  /* ^- the important bit. RGB 192,192,192 is the same as #C0C0C0*/
+  &.burger-left {
+    padding: 19px 15px 15px !important;  }
   
-  -webkit-transition: border 250ms ease;
-  -moz-transition: border 250ms ease;
-  -ms-transition: border 250ms ease;
-  -o-transition: border 250ms ease;
-  transition: border 250ms ease; 
+  &.cart-right {
+    padding: 19px 15px 15px !important;
+  }
+
 }
 
 
 
-.desktop-dropdown {
-  position: absolute;
-  width: 100%;
-  left: 0;
-}
 
-.desktop-dropdown--columns-list {
-  float: left;
-  width: auto;
-  font-size: 17px;
-  text-transform: uppercase;
-  padding-right: 50px
-}
 
-.desktop-dropdown--child {
-}
 
-li.desktop-dropdown--child-list {
-  font-size: 14px;
-  letter-spacing: 1px;
-  font-family: HelveticaNeueLTStd-Cn;
-  padding-top: 10px;
-  padding-bottom: 0px;
-}
 
-li.desktop-dropdown--child-list-special {
-  padding-top: 10px;
-  padding-bottom: 0px;
-}
