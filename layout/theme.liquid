@@ -32,7 +32,7 @@
   <meta name="HandheldFriendly" content="true" />
 
   <!-- CSS ================================================== -->
-  {{ 'test.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'new.scss.css' | asset_url | stylesheet_tag }}
   <link href="//cdn.rawgit.com/noelboss/featherlight/1.7.7/release/featherlight.min.css" type="text/css" rel="stylesheet" />
 
   <!-- Header hook for plugins ================================================== -->
@@ -43,9 +43,7 @@
   <!-- JS ================================================== -->
   {{ '//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' | script_tag }}
   {{ 'modernizr.min.js' | asset_url | script_tag }}
-  {% if template contains 'affiliate' or template contains 'product' or template contains 'fall' %}
     {{ 'jquery.colorbox-min.js' | asset_url | script_tag }}
-  {% endif %}
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> 
   {{ 'slick.min.js' | asset_url | script_tag }}
   <script src="//cdn.rawgit.com/noelboss/featherlight/1.7.7/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
