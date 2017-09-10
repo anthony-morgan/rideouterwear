@@ -1,8 +1,27 @@
+/*============================================================================
+  Imagery by Avidity Media & Marketing
+  Built with Sass - http://sass-lang.com/
+
+  Some things to know about this file:
+    - Sass is compiled on Shopify's server so you don't need to convert it to CSS yourself
+    - The output CSS is compressed and comments are removed
+    - You cannot use @imports in this file
+        * Use grunt or gulp tasks to enable @imports - https://github.com/Shopify/shopify-css-import
+    - Helpers variables, mixins, and starter classes are provided. Change as needed.
+    - The file is prepped with a CSS reset
+    - The font icons are prepared using https://icomoon.io/app
+==============================================================================*/
+
 /*
 
 TABLE OF CONTENTS
 
-1. HEADER | header.liquid
+1. General Styling
+    -Breakpoint and Grid Variables
+    -General Variables
+    -
+
+2. HEADER | header.liquid
 
     -General
     -Desktop Header: desktop-nav.liquid
@@ -11,29 +30,40 @@ TABLE OF CONTENTS
     -Mobile Nav Drawer: nav--drawer.liquid
     -Cart Drawer: cart-drawer.liquid
 
-2. FOOTER | footer.liquid
+3. FOOTER | footer.liquid
 
     -General
     -Footer Menu: footer-menu.liquid
 
-3. ICONS
+4. ICONS/FONTS
 
     -General
     -Payment Icons: footer-payments.liquid
     -Social Icons
+    -Typography
+        *Custom Fonts
+    -Links and Buttons
+    -Lists
+    -Images and Frames
+    -Forms
+    -Pagination
+    -Notes and Form Feedback
 
-4. HOMEPAGE | index.html
+5. HOMEPAGE | index.html  ??? NEED TO MOVE TO PAGES SECTION ???
 
     -Homepage Banners: homepage--banners.liquid
 
-5. SEARCH | search.liquid
+6. SEARCH | search.liquid
 
     -Predictive Search
     -Search Page: search.liquid
 
-6. CART | cart.liquid
+7. CART | cart.liquid
 
-7. COLLECTIONS
+/*================ PAGES ================*/
+
+
+8. COLLECTIONS
 
     -Collection Overview: collection.overview.liquid
         *Banners
@@ -49,7 +79,7 @@ TABLE OF CONTENTS
     -Collection Extras
         *Collection Icons: collection--icons.liquid
 
-8. PRODUCTS 
+9. PRODUCTS 
 
     -Breadcrumbs: breadcrumb.liquid
       *Standard Breadcrumbs
@@ -66,7 +96,7 @@ TABLE OF CONTENTS
 
     -Product Promos and Related
 
-12. PLUGINS
+10. PLUGINS
 
     -Slick Carousel
       *

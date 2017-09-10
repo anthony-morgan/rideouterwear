@@ -51,3 +51,124 @@
 li.desktop-arrows:first-child {
   padding-right: 10px;
 }
+
+.grid__image {
+  display: block;
+  margin: 0 auto;
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.grid-product__sold-out {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+  left: 0;
+  
+  a {
+    margin: 0;
+    color: white;
+  }
+}
+
+input#ContactFormName,#ContactFormEmail,#ContactFormPhone,#ContactFormMessage {
+  padding-left: 5px;
+}  
+
+.slder {
+  li {
+  width: 300px;
+  }
+}
+
+button.next.btn.slick-arrow, button.next.slick-arrow.btn--secondary {
+  margin: 10px;
+  padding: 10px 42px;
+}
+
+.padding {
+  padding: 0px 20px;
+}
+
+
+ 
+.additional_checkout_buttons {
+  margin-top: 10px;
+  
+  button.additional-checkout-button--paypal-express, .amazon-payments-pay-button.additional-checkout-button--amazon {
+    border-radius: 0 !important;
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.customers-login {
+  padding: 0 15px;
+}
+
+.noSelect {
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+}
+
+.cart__row .js-qty button {
+  width: 35%;
+}
+
+
+.product--promo-container {
+  padding: 0;
+
+    @include at-query ($max, $small){  
+      height: 300px;
+    }
+  
+    @include at-query ($min, $postSmall){  
+      height: 400px;
+    }  
+  
+    @include at-query ($min, $large){
+      height: 500px;
+    }
+}
+.product--promo-image {
+  height: 100%;
+}
+
+.overlay {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  
+  &:hover {
+    background: rgba(0,0,0,0.3);
+  }
+}
+
+.product--promo-info {
+  color: white;
+  text-align: right;
+  padding-right: 20px;
+  
+    @include at-query ($max, $small){
+      padding-top: 200px;
+      text-align: center;
+      padding-right: 0;
+      
+      .btn--secondary {
+        padding: 10px 40px;
+      }
+    }
+  
+    @include at-query ($min, $postSmall){
+      padding-top: 150px;
+    }
+  
+    @include at-query ($min, $large){
+      padding-top: 200px;
+    }
+}
